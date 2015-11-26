@@ -1,0 +1,15 @@
+<?php
+
+/* direccion del servidor de base de datos */
+$serv="localhost";
+
+/* nombre de la base de datos */
+$bbdd="database";
+
+/* usuario de la base de datos */
+$usua="user";
+
+/* password de la base de datos */
+$pass="pass";
+
+?>

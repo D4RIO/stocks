@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp * /var/www/deposito
+chown -R www /var/www
+
