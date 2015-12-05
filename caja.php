@@ -23,7 +23,7 @@
   <a href='index.php'>[p&aacute;gina de inicio]</a>
 
   <?php
-    $consulta="SELECT ID,TIPO,NOMBRE,CANTIDAD,UNIDAD,VENCIMIENTO
+    $consulta="SELECT ID,TIPO,NOMBRE,RESTO_CONSUMO,UNIDAD,VENCIMIENTO
                FROM STOCK
                WHERE UBICACION=?
                ORDER BY VENCIMIENTO ASC";

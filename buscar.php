@@ -23,7 +23,7 @@
   <a href='index.php'>[p&aacute;gina de inicio]</a>
   <h1>Busqueda de Articulos:</h1>
   <?php
-    $consulta="SELECT ID,TIPO,NOMBRE,CANTIDAD,UNIDAD,UBICACION,VENCIMIENTO
+    $consulta="SELECT ID,TIPO,NOMBRE,CANTIDAD,RESTO_CONSUMO,UNIDAD,UBICACION,FEC_INSERT,VENCIMIENTO
                FROM STOCK WHERE
                TIPO LIKE CONCAT('%',UPPER(?),'%')
                OR NOMBRE LIKE CONCAT('%',UPPER(?),'%')
@@ -37,8 +37,8 @@
     }
 
     /* se reciben los resultados en variables */
-    $select->bind_result($id,     $tipo,      $nombre,     $cantidad,
-                         $unidad, $ubicacion, $vencimiento);
+    $select->bind_result($id,            $tipo,      $nombre,     $cantidad,
+                         $resto_consumo, $unidad,    $ubicacion,  $fec_insert, $vencimiento);
     /* store_result es necesario para poder   */
     /* ver el número correcto de filas con    */
     /* $select->num_rows                      */
@@ -54,9 +54,11 @@
       <TR>
         <!-- El primero está para dejar vacía la esquina arriba-izquierda -->
         <TH style='visibility:hidden'></TH>
-        <TH COLSPAN=2>ARTICULO</TH>
-        <TH COLSPAN=2>CANTIDAD</TH>
+        <TH>ARTICULO</TH>
+        <TH>STOCK INICIAL</TH>
+        <TH>STOCK ACTUAL</TH>
         <TH>UBICACION</TH>
+        <TH>INGRESO</TH>
         <TH>VENCE</TH>
       </TR>
     <?php
@@ -64,11 +66,11 @@
     ?>
       <TR>
         <TD><a href='edit.php?id=<?=$id?>'>&raquo;</a></TD>
-        <TD><B><?=$tipo?></B></TD>
-        <TD><B><?=$nombre?></B></TD>
-        <TD><?=$cantidad?></TD>
-        <TD><?=$unidad?></TD>
+        <TD><B><?=$tipo?> <?=$nombre?></B></TD>
+        <TD><?=$cantidad?> <?=$unidad?></TD>
+        <TD><?=$resto_consumo?> <?=$unidad?></TD>
         <TD><?=$ubicacion?></TD>
+        <TD><?=$fec_insert?></TD>
         <TD><?=$vencimiento?></TD>
       </TR>
     <?php
