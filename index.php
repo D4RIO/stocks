@@ -18,10 +18,10 @@
 	 * vencidos o por vencer en menos de una semana, si
 	 * los hubiera, necesitamos advertirlo
 	 */
-    $consulta="SELECT ID,TIPO,NOMBRE,CANTIDAD,UNIDAD,UBICACION,VENCIMIENTO, DATE_ADD(CURDATE(),INTERVAL 1 WEEK)
+    $consulta="SELECT ID,TIPO,NOMBRE,RESTO_CONSUMO,UNIDAD,UBICACION,VENCIMIENTO, DATE_ADD(CURDATE(),INTERVAL 1 WEEK)
                FROM STOCK
 			   WHERE VENCIMIENTO < DATE_ADD(CURDATE(),INTERVAL 1 WEEK)
-			   AND CANTIDAD > 0
+			   AND RESTO_CONSUMO > 0
 			   ORDER BY VENCIMIENTO ASC";
 
     $select_vencimientos=$condb->prepare($consulta);

@@ -5,7 +5,7 @@
 	/*MODO DE EDICION EFECTIVA*/
 	if ($_GET["do_edit"]=="yes") {
 		$edicion_txt="UPDATE STOCK SET
-                      TIPO=?, NOMBRE=?, CANTIDAD=?,
+                      TIPO=?, NOMBRE=?, RESTO_CONSUMO=?,
                       UNIDAD=?, VENCIMIENTO=DATE(?), UBICACION=?
                       WHERE ID=?";
 
@@ -66,8 +66,8 @@
 
 		/* se reciben los resultados en variables */
 		$select->bind_result($id,       $tipo,   $nombre,
-                                     $cantidad, $unidad, $vencimiento,
-                                     $ubicacion);
+		                     $cantidad, $unidad, $vencimiento,
+		                     $ubicacion);
 		/* store_result es necesario para poder   */
 		/* ver el número correcto de filas con    */
 		/* $select->num_rows                      */
