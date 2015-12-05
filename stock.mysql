@@ -1,0 +1,12 @@
+CREATE TABLE `stock` (
+ `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
+ `NOMBRE` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+ `TIPO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+ `CANTIDAD` float unsigned NOT NULL,
+ `RESTO_CONSUMO` float unsigned NOT NULL,
+ `UNIDAD` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+ `VENCIMIENTO` date NOT NULL,
+ `UBICACION` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+ `FEC_INSERT` date NOT NULL,
+ UNIQUE KEY `IDENTIFICADOR` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci
